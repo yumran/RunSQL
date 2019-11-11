@@ -23,20 +23,20 @@ import com.jacob.com.Variant;
 public class VoicePanel extends JPanel implements ActionListener,ChangeListener{
 	private ActiveXComponent sap = null;
 	
-	private JTextArea textArea;   //ÎÄ±¾Óò
-	private JButton toVoiceBtn;   //ÎÄ×Ö×ªÓïÒô°´Å¥
-	private JButton toTextBtn;    //ÓïÒô×ªÎÄ×Ö°´Å¥
-	private JLabel volumeJLa;     //ÒôÁ¿±êÌâ
-	private JSlider volumeJsl;    //ÒôÁ¿»¬Ìõ
-	private JLabel speedJLa;      //ËÙ¶È±êÌâ
-	private JSlider speedJsl;     //ËÙ¶È
+	private JTextArea textArea;   //æ–‡æœ¬åŸŸ
+	private JButton toVoiceBtn;   //æ–‡å­—è½¬è¯­éŸ³æŒ‰é’®
+	private JButton toTextBtn;    //è¯­éŸ³è½¬æ–‡å­—æŒ‰é’®
+	private JLabel volumeJLa;     //éŸ³é‡æ ‡é¢˜
+	private JSlider volumeJsl;    //éŸ³é‡æ»‘æ¡
+	private JLabel speedJLa;      //é€Ÿåº¦æ ‡é¢˜
+	private JSlider speedJsl;     //é€Ÿåº¦
 	
 	public VoicePanel() {
 		init();
 	}
 
 	private void init() {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		SpringLayout springLayout = new SpringLayout();
 		this.setLayout(springLayout);
 		
@@ -47,40 +47,40 @@ public class VoicePanel extends JPanel implements ActionListener,ChangeListener{
 		taPanel.add(textArea,BorderLayout.CENTER);
 		
 		JPanel btnPanel = new JPanel(new FlowLayout());
-		toVoiceBtn = new JButton("ºÏ³ÉÓïÒô");
-		toTextBtn = new JButton("Â¼ÖÆÓïÒô");
+		toVoiceBtn = new JButton("åˆæˆè¯­éŸ³");
+		toTextBtn = new JButton("å½•åˆ¶è¯­éŸ³");
 		toVoiceBtn.addActionListener(this);
 		toTextBtn.addActionListener(this);
 		btnPanel.add(toTextBtn);
 		btnPanel.add(toVoiceBtn);
 		
 		JPanel volumePanel = new JPanel(new BorderLayout());
-		volumeJLa = new JLabel("ÒôÁ¿");
+		volumeJLa = new JLabel("éŸ³é‡");
 		volumeJLa.setFont(new Font("Dialog", 1, 20));
 		volumeJsl = new JSlider(0, 100, 20);
-		//ÒôÁ¿»¬ÌõÌí¼Ó¼àÌıÆ÷
+		//éŸ³é‡æ»‘æ¡æ·»åŠ ç›‘å¬å™¨
 		volumeJsl.addChangeListener(this);
-		 // ÉèÖÃÖ÷¿Ì¶È¼ä¸ô
+		 // è®¾ç½®ä¸»åˆ»åº¦é—´éš”
 		volumeJsl.setMajorTickSpacing(10);
-        // ÉèÖÃ´Î¿Ì¶È¼ä¸ô
+        // è®¾ç½®æ¬¡åˆ»åº¦é—´éš”
 		volumeJsl.setMinorTickSpacing(5);
-        // »æÖÆ ¿Ì¶È ºÍ ±êÇ©
+        // ç»˜åˆ¶ åˆ»åº¦ å’Œ æ ‡ç­¾
 		volumeJsl.setPaintTicks(true);
 		volumeJsl.setPaintLabels(true);
 		volumePanel.add(volumeJLa,BorderLayout.WEST);
 		volumePanel.add(volumeJsl,BorderLayout.CENTER);
 		
 		JPanel speedPanel = new JPanel(new BorderLayout());
-		speedJLa = new JLabel("ËÙ¶È");
+		speedJLa = new JLabel("é€Ÿåº¦");
 		speedJLa.setFont(new Font("Dialog", 1, 20));
 		speedJsl = new JSlider(0, 20, 10);
-		//ËÙ¶È»¬ÌõÌí¼Ó¼àÌıÆ÷
+		//é€Ÿåº¦æ»‘æ¡æ·»åŠ ç›‘å¬å™¨
 		speedJsl.addChangeListener(this);
-		 // ÉèÖÃÖ÷¿Ì¶È¼ä¸ô
+		 // è®¾ç½®ä¸»åˆ»åº¦é—´éš”
 		speedJsl.setMajorTickSpacing(5);
-        // ÉèÖÃ´Î¿Ì¶È¼ä¸ô
+        // è®¾ç½®æ¬¡åˆ»åº¦é—´éš”
 		speedJsl.setMinorTickSpacing(1);
-        // »æÖÆ ¿Ì¶È ºÍ ±êÇ©
+        // ç»˜åˆ¶ åˆ»åº¦ å’Œ æ ‡ç­¾
 		speedJsl.setPaintTicks(true);
 		speedJsl.setPaintLabels(true);
 		speedPanel.add(speedJLa,BorderLayout.WEST);
@@ -107,43 +107,43 @@ public class VoicePanel extends JPanel implements ActionListener,ChangeListener{
 		springLayout.putConstraint(SpringLayout.WEST, btnPanel, 0, SpringLayout.WEST, this);  
 	}
 	
-	//  Â¼ÖÆ¡¢ºÏ³É °´Å¥´¥·¢µÄ¼àÌı»úÖÆ
+	//  å½•åˆ¶ã€åˆæˆ æŒ‰é’®è§¦å‘çš„ç›‘å¬æœºåˆ¶
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		if(e.getSource()==toVoiceBtn) {
 			transform(textArea.getText().trim());
 		}else if (e.getSource()==toTextBtn) {
-			System.out.println("´ıÍê³É£¡");
+			System.out.println("å¾…å®Œæˆï¼");
 		}
 	}
 	
-	//  ÒôÁ¿¡¢ËÙ¶È »¬Ìõ¸Ä±äÊ±´¥·¢¼àÌı»úÖÆ
+	//  éŸ³é‡ã€é€Ÿåº¦ æ»‘æ¡æ”¹å˜æ—¶è§¦å‘ç›‘å¬æœºåˆ¶
 	@Override
 	public void stateChanged(ChangeEvent e) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		if(e.getSource()==volumeJsl) {
 			setting(volumeJsl.getValue(),speedJsl.getValue());
 		}else if (e.getSource()==toTextBtn) {
-			System.out.println("´ıÍê³É£¡");
+			System.out.println("å¾…å®Œæˆï¼");
 		}
 	}
 	
-	//ÉèÖÃ ÒôÁ¿¡¢ËÙ¶È
+	//è®¾ç½® éŸ³é‡ã€é€Ÿåº¦
 	private void setting(int volume, int speed) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		if(sap == null||sap.m_pDispatch==0) {
 			sap = new ActiveXComponent("Sapi.SpVoice");
 		}
-		// ÒôÁ¿ 0-100
+		// éŸ³é‡ 0-100
         sap.setProperty("Volume", new Variant(volume));
-        // ÓïÒôÀÊ¶ÁËÙ¶È -10 µ½ +10
+        // è¯­éŸ³æœ—è¯»é€Ÿåº¦ -10 åˆ° +10
         sap.setProperty("Rate", new Variant(speed));
 	}
 	
-	//×ª»¯º¯Êı
+	//è½¬åŒ–å‡½æ•°
 	private void transform(String text) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		if(!text.isEmpty()&&!text.equals("")) {
 		    if(sap == null||sap.m_pDispatch==0) {
 		    	sap = new ActiveXComponent("Sapi.SpVoice");

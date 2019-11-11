@@ -19,15 +19,15 @@ public class MyJMenuBar extends JMenuBar implements ActionListener{
 	private Main mainGUI;
 
 	public MyJMenuBar(Main mainGuI) {
-		// TODO ×Ô¶¯Éú³ÉµÄ¹¹Ôìº¯Êı´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ„é€ å‡½æ•°å­˜æ ¹
 		this.mainGUI = mainGuI;
 		addMenu();
 	}
 
 	private void addMenu() {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
-		String[] jmLabel = {"ÎÄ¼ş","±à¼­","¸ñÊ½","²é¿´","SQL","ÉèÖÃ","×ª»»","°ïÖú"};
-		String[][] jmiLabel = {{"ĞÂ½¨","´ò¿ª","±£´æ","Áí´æÎª","ÍË³ö"},{"³·Ïú","¼ôÇĞ","¸´ÖÆ","Õ³Ìù","²éÕÒ","Ìæ»»"},{},{},{"Ö´ĞĞ","¶Ô±È"},{"Êı¾İÔ´"},{"ÓïÒô"},{}};
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
+		String[] jmLabel = {"æ–‡ä»¶","ç¼–è¾‘","æ ¼å¼","æŸ¥çœ‹","SQL","è®¾ç½®","è½¬æ¢","å¸®åŠ©"};
+		String[][] jmiLabel = {{"æ–°å»º","æ‰“å¼€","ä¿å­˜","å¦å­˜ä¸º","é€€å‡º"},{"æ’¤é”€","å‰ªåˆ‡","å¤åˆ¶","ç²˜è´´","æŸ¥æ‰¾","æ›¿æ¢"},{},{},{"æ‰§è¡Œ","å¯¹æ¯”"},{"æ•°æ®æº"},{"è¯­éŸ³"},{}};
 		for(int i=0;i<jmLabel.length;i++) {
 			JMenu jm = new JMenu(jmLabel[i]);
 			for(int j=0;j<jmiLabel[i].length;j++) {
@@ -36,7 +36,7 @@ public class MyJMenuBar extends JMenuBar implements ActionListener{
 				}else {
 					JMenuItem jmi = new JMenuItem(jmiLabel[i][j]);
 					jmi.addActionListener(this);
-					jm.addSeparator();   //Õâ¸öÊÇ  ²Ëµ¥ÖĞ µÄºáÏß·Ö¸ô·û
+					jm.addSeparator();   //è¿™ä¸ªæ˜¯  èœå•ä¸­ çš„æ¨ªçº¿åˆ†éš”ç¬¦
 					jm.add(jmi);
 				}
 			}
@@ -46,24 +46,24 @@ public class MyJMenuBar extends JMenuBar implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
-		// ÇĞ»»ÄÚÈİÃæ°å
-		if(e.getActionCommand().equals("ĞÂ½¨")) {
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
+		// åˆ‡æ¢å†…å®¹é¢æ¿
+		if(e.getActionCommand().equals("æ–°å»º")) {
 			changePane(new MyTextArea());
-		}else if(e.getActionCommand().equals("Ö´ĞĞ")) {
+		}else if(e.getActionCommand().equals("æ‰§è¡Œ")) {
 			changePane(new SQLPanel());
-		}else if (e.getActionCommand().equals("¶Ô±È")) {
+		}else if (e.getActionCommand().equals("å¯¹æ¯”")) {
 			
-		}else if(e.getActionCommand().equals("ÓïÒô")) {
+		}else if(e.getActionCommand().equals("è¯­éŸ³")) {
 			changePane(new VoicePanel());
-		}else if (e.getActionCommand().equals("Êı¾İÔ´")) {
+		}else if (e.getActionCommand().equals("æ•°æ®æº")) {
 			DataSourseGUI dataSourse = new DataSourseGUI(mainGUI);
 		}
 	}
 	
-	// ÇĞ»»ÄÚÈİÃæ°å
+	// åˆ‡æ¢å†…å®¹é¢æ¿
 	private void changePane(Container panel) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		mainGUI.setContentPane(panel);
 		mainGUI.revalidate();
 	}

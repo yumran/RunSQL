@@ -10,17 +10,17 @@ import javax.swing.SpringLayout;
 
 @SuppressWarnings("serial")
 public class SQLPanel extends JPanel{
-	private JTextArea textArea;   //ÎÄ±¾Óò
-	private JButton runBtn;   //Ö´ĞĞ°´Å¥
-	private JTable table;     //½á¹û
-	private JLabel timeLabel;  //Ö´ĞĞÊ±¼ä
+	private JTextArea textArea;   //æ–‡æœ¬åŸŸ
+	private JButton runBtn;   //æ‰§è¡ŒæŒ‰é’®
+	private JTable table;     //ç»“æœ
+	private JLabel timeLabel;  //æ‰§è¡Œæ—¶é—´
 	
 	public SQLPanel() {
 		init();
 	}
 
 	private void init() {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		SpringLayout springLayout = new SpringLayout();
 		this.setLayout(springLayout);
 		

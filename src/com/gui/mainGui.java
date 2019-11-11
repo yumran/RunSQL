@@ -116,7 +116,7 @@ public class mainGui extends JFrame {
 		this.getContentPane().add(splitPane);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//ÓÃÀ´ÉèÖÃ´°¿ÚËæÆÁÄ»´óĞ¡¸Ä±ä
+		//ç”¨æ¥è®¾ç½®çª—å£éšå±å¹•å¤§å°æ”¹å˜
 		sizeWindowOnScreen(this, 0.6, 0.6);
 		setLocationRelativeTo(null);
 		setVisible(true);
@@ -124,7 +124,7 @@ public class mainGui extends JFrame {
 	}
 
 	private void sizeWindowOnScreen(mainGui mainGui, double widthRate, double heightRate) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		mainGui.setSize(new Dimension((int)(screenSize.width * widthRate),(int)(screenSize.height*heightRate)));
 	}

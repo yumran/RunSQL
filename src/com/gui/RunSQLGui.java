@@ -6,7 +6,6 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
@@ -16,11 +15,11 @@ public class RunSQLGui extends JFrame{
 		super();
 	   JMenuBar menuBar = new JMenuBar();
 	  
-	   JMenu fileMenu = new JMenu("ÎÄ¼ş");
-	   JMenu editMenu = new JMenu("±à¼­");
-	   JMenu formatMenu = new JMenu("¸ñÊ½");
-	   JMenu checkMenu = new JMenu("²é¿´");
-	   JMenu helpMenu = new JMenu("°ïÖú");
+	   JMenu fileMenu = new JMenu("æ–‡ä»¶");
+	   JMenu editMenu = new JMenu("ç¼–è¾‘");
+	   JMenu formatMenu = new JMenu("æ ¼å¼");
+	   JMenu checkMenu = new JMenu("æŸ¥çœ‹");
+	   JMenu helpMenu = new JMenu("å¸®åŠ©");
 	  
 	   menuBar.add(fileMenu);
 	   menuBar.add(editMenu);
@@ -40,13 +39,13 @@ public class RunSQLGui extends JFrame{
 	   this.setJMenuBar(menuBar);
 	   this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	  
-	   //ÓÃÀ´ÉèÖÃ´°¿ÚËæÆÁÄ»´óĞ¡¸Ä±ä
+	   //ç”¨æ¥è®¾ç½®çª—å£éšå±å¹•å¤§å°æ”¹å˜
 	   sizeWindowOnScreen(this,0.6,0.6);
 	   this.setVisible(true);
 	}
 
 	private void sizeWindowOnScreen(RunSQLGui runSQLGui, double widthRate, double heightRatee) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		runSQLGui.setSize(new Dimension((int)(screenSize.width * widthRate),(int)(screenSize.height*heightRatee)));
 	}

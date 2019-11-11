@@ -10,8 +10,8 @@ import javax.swing.border.Border;
 
 @SuppressWarnings("serial")
 public class MyTextArea extends JScrollPane{
-	private JPanel taPanel;    //ÎÄ±¾ÓòÃæ°å
-	private JTextArea textArea;  //ÎÄ±¾Óò
+	private JPanel taPanel;    //æ–‡æœ¬åŸŸé¢æ¿
+	private JTextArea textArea;  //æ–‡æœ¬åŸŸ
 	
 	public MyTextArea() {
 		init();
@@ -20,18 +20,18 @@ public class MyTextArea extends JScrollPane{
 	}
 
 	private void init() {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		taPanel = new JPanel(new BorderLayout());
 		textArea = new JTextArea();
-		//ÎªTextAreaÌõ¼ş±ß¾à
+		//ä¸ºTextAreaæ¡ä»¶è¾¹è·
 		addMargin(textArea);
 		taPanel.add(textArea,BorderLayout.CENTER);
 		this.setViewportView(taPanel);
 	}
 
 	public static void addMargin(JTextArea textArea) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
-		Border border = BorderFactory.createEmptyBorder();     //´´½¨Ò»¸ö²»Õ¼ÓÃ¿Õ¼äµÄ¿Õ±ß¿ò¡££¨¶¥Ïß¡¢µ×Ïß¡¢×ó±ß¿òÏßºÍÓÒ±ß¿òÏßµÄ¿í¶È¶¼ÎªÁã¡££© 
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
+		Border border = BorderFactory.createEmptyBorder();     //åˆ›å»ºä¸€ä¸ªä¸å ç”¨ç©ºé—´çš„ç©ºè¾¹æ¡†ã€‚ï¼ˆé¡¶çº¿ã€åº•çº¿ã€å·¦è¾¹æ¡†çº¿å’Œå³è¾¹æ¡†çº¿çš„å®½åº¦éƒ½ä¸ºé›¶ã€‚ï¼‰ 
 		textArea.setBorder(BorderFactory.createCompoundBorder(border,BorderFactory.createEmptyBorder(5,5,5,5))); 
 	}
 }

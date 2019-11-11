@@ -27,35 +27,35 @@ public class Main extends JFrame{
 	
 	public Main() {
 		super();
-		addJMenuBar();   //Ìí¼Ó²Ëµ¥À¸
-		addContentPanel(new MyTextArea());  //Ìí¼ÓÎÄ±¾Óò
+		addJMenuBar();   //æ·»åŠ èœå•æ 
+		addContentPanel(new MyTextArea());  //æ·»åŠ æ–‡æœ¬åŸŸ
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//ÓÃÀ´ÉèÖÃ´°¿ÚËæÆÁÄ»´óĞ¡¸Ä±ä
+		//ç”¨æ¥è®¾ç½®çª—å£éšå±å¹•å¤§å°æ”¹å˜
 		sizeWindowOnScreen(this, 0.8, 0.8);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
 	
 	/*
-	 *    Ìí¼Ó²Ë†Î
+	 *    æ·»åŠ èœå–®
 	 */
 	public void addJMenuBar() {
-		MyJMenuBar menuBar = new MyJMenuBar(this);   //´´½¨²Ëµ¥À¸
+		MyJMenuBar menuBar = new MyJMenuBar(this);   //åˆ›å»ºèœå•æ 
 		setJMenuBar(menuBar);
 	}
 	
 	/*
-	 *  Ìí¼ÓÎÄ±¾Óò
+	 *  æ·»åŠ æ–‡æœ¬åŸŸ
 	 */
 	private void addContentPanel(Container contentPane) {
 		this.getContentPane().add(contentPane,BorderLayout.CENTER);
 	}
 	
 	/*
-	 *  ÔOÖÃ´°ów´óĞ¡
+	 *  è¨­ç½®çª—é«”å¤§å°
 	 */
 	public void sizeWindowOnScreen(JFrame jf, double widthRate, double heightRate) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		jf.setSize(new Dimension((int)(screenSize.width * widthRate),(int)(screenSize.height*heightRate)));
 	}

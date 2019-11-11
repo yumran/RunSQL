@@ -12,12 +12,12 @@ import org.json.JSONObject;
 
 public class JdbcUtil {
 	//private Logger logger = Logger.getLogger(JdbcUtil.class);
-    private static String driverClass;     // ¶¨Òå Êı¾İ¿âÇı¶¯
-    private static String host;           // ¶¨Òå Ö÷»ú
-    private static String port;           // ¶¨Òå ¶Ë¿Ú
-    private static String user;      	 // ¶¨Òå Êı¾İ¿âÓÃ»§ 
-    private static String password;     // ¶¨Òå Êı¾İ¿âÓÃ»§µÄÃÜÂë
-    private static String url;          // ¶¨Òå url
+    private static String driverClass;     // å®šä¹‰ æ•°æ®åº“é©±åŠ¨
+    private static String host;           // å®šä¹‰ ä¸»æœº
+    private static String port;           // å®šä¹‰ ç«¯å£
+    private static String user;      	 // å®šä¹‰ æ•°æ®åº“ç”¨æˆ· 
+    private static String password;     // å®šä¹‰ æ•°æ®åº“ç”¨æˆ·çš„å¯†ç 
+    private static String url;          // å®šä¹‰ url
     
     private static Connection conn = null;
     private static PreparedStatement pstmt = null;
@@ -45,12 +45,12 @@ public class JdbcUtil {
     }
     
     private static void doLoadDriverClass(String driverClass) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		try {
 			Class.forName(driverClass);
 		} catch (ClassNotFoundException e) {
-			// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
-			System.out.println("Êı¾İ¿âÇı¶¯Àà¼ÓÔØÒì³£");
+			// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
+			System.out.println("æ•°æ®åº“é©±åŠ¨ç±»åŠ è½½å¼‚å¸¸");
 			e.printStackTrace();
 		} 
 	}
@@ -60,8 +60,8 @@ public class JdbcUtil {
     	try {
 			conn = DriverManager.getConnection(url, user, password);
 		} catch (SQLException e) {
-			// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
-			System.out.println("»ñÈ¡Êı¾İ¿âÁ¬½ÓÒì³£");
+			// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
+			System.out.println("è·å–æ•°æ®åº“è¿æ¥å¼‚å¸¸");
 			e.printStackTrace();
 		}
     	return conn;
@@ -73,8 +73,8 @@ public class JdbcUtil {
     	try {
 			conn = DriverManager.getConnection(url, user, password);
 		} catch (SQLException e) {
-			// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
-			System.out.println("»ñÈ¡Êı¾İ¿âÁ¬½ÓÒì³£");
+			// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
+			System.out.println("è·å–æ•°æ®åº“è¿æ¥å¼‚å¸¸");
 			e.printStackTrace();
 		}
     	return conn;
@@ -89,8 +89,8 @@ public class JdbcUtil {
 				pstmt.setObject(i+1, objects[i]);
 			}
 		} catch (SQLException e) {
-			// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
-			System.out.println("»ñÈ¡Êı¾İ¿â´¦ÀíÃüÁîÒì³£");
+			// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
+			System.out.println("è·å–æ•°æ®åº“å¤„ç†å‘½ä»¤å¼‚å¸¸");
 			e.printStackTrace();
 		}
     	return pstmt;
@@ -102,8 +102,8 @@ public class JdbcUtil {
 		try {
 			rs = pstmt.executeQuery();
 		} catch (SQLException e) {
-			// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
-			System.out.println("SQL²éÑ¯Ê§°Ü£¡");
+			// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
+			System.out.println("SQLæŸ¥è¯¢å¤±è´¥ï¼");
 			e.printStackTrace();
 		} finally {
 			close();
@@ -116,8 +116,8 @@ public class JdbcUtil {
 		try {
 			rows = pstmt.executeUpdate(sql);
 		} catch (SQLException e) {
-			// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
-			System.out.println("SQLÖ´ĞĞÊ§°Ü£¡");
+			// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
+			System.out.println("SQLæ‰§è¡Œå¤±è´¥ï¼");
 			e.printStackTrace();
 		} finally {
 			close();
@@ -126,15 +126,15 @@ public class JdbcUtil {
 	}
 	
 	public static String resultSetToJson(ResultSet rs) throws SQLException {  
-	   // jsonÊı×é  
+	   // jsonæ•°ç»„  
 	   JSONArray array = new JSONArray();  
-	   // »ñÈ¡ÁĞÊı  
+	   // è·å–åˆ—æ•°  
 	   ResultSetMetaData metaData = rs.getMetaData();
 	   int columnCount = metaData.getColumnCount();  
-	   // ±éÀúResultSetÖĞµÄÃ¿ÌõÊı¾İ  
+	   // éå†ResultSetä¸­çš„æ¯æ¡æ•°æ®  
 	    while (rs.next()) {  
 	        JSONObject jsonObj = new JSONObject();  
-	        // ±éÀúÃ¿Ò»ÁĞ  
+	        // éå†æ¯ä¸€åˆ—  
 	        for (int i = 1; i <= columnCount; i++) {  
 	            String columnName =metaData.getColumnLabel(i);  
 	            String value = rs.getString(columnName);  
@@ -160,7 +160,7 @@ public class JdbcUtil {
     		}
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("¹Ø±ÕÊı¾İ¿âÁ¬½ÓÒì³£");
+			System.out.println("å…³é—­æ•°æ®åº“è¿æ¥å¼‚å¸¸");
 			e.printStackTrace();
 		}
     }

@@ -19,19 +19,19 @@ import com.dao.JdbcUtil;
 
 @SuppressWarnings("serial")
 public class DataSourseGUI extends JFrame implements ActionListener{	
-	private JLabel dataTypeLabel;    //Êı¾İ¿âÀàĞÍ   MYSQL SQL SERVER 
-	private JLabel dataHostLabel;     //Ö÷»ú
-	private JLabel dataPortLabel;    //¶Ë¿Ú
-	private JLabel dataBaseLabel;    //Êı¾İ¿â
-	private JLabel userNameLabel;    //ÓÃ»§Ãû
-	private JLabel passWordLabel;    //ÃÜÂë
+	private JLabel dataTypeLabel;    //æ•°æ®åº“ç±»å‹   MYSQL SQL SERVER 
+	private JLabel dataHostLabel;     //ä¸»æœº
+	private JLabel dataPortLabel;    //ç«¯å£
+	private JLabel dataBaseLabel;    //æ•°æ®åº“
+	private JLabel userNameLabel;    //ç”¨æˆ·å
+	private JLabel passWordLabel;    //å¯†ç 
 	
-	private JComboBox<Object> dataTypeField;  //Êı¾İ¿âÀàĞÍ    ÏÂÀ­Ñ¡¿ò
-	private JTextField dataHostField;         //Ö÷»ú       ÎÄ±¾¿ò
-	private JTextField dataPortField;         //¶Ë¿Ú       ÎÄ±¾¿ò
-	private JComboBox<Object> dataBaseField;  //Êı¾İ¿â       ÏÂÀ­Ñ¡¿ò
-	private JTextField userNameField;        //ÓÃ»§Ãû            ÎÄ±¾¿ò
-	private JTextField passWordField;        //ÃÜÂë                 ÎÄ±¾¿ò
+	private JComboBox<Object> dataTypeField;  //æ•°æ®åº“ç±»å‹    ä¸‹æ‹‰é€‰æ¡†
+	private JTextField dataHostField;         //ä¸»æœº       æ–‡æœ¬æ¡†
+	private JTextField dataPortField;         //ç«¯å£       æ–‡æœ¬æ¡†
+	private JComboBox<Object> dataBaseField;  //æ•°æ®åº“       ä¸‹æ‹‰é€‰æ¡†
+	private JTextField userNameField;        //ç”¨æˆ·å            æ–‡æœ¬æ¡†
+	private JTextField passWordField;        //å¯†ç                  æ–‡æœ¬æ¡†
 	
 	private JButton connectTestBut;
 	private JButton submitBut;
@@ -41,16 +41,16 @@ public class DataSourseGUI extends JFrame implements ActionListener{
 		setSize(400,330);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		mainGUI.setEnabled(false);//½«Ö÷½çÃæÔÙÉèÖÃÎª¿É²Ù×÷µÄ
-		addWindowListener(new WindowAdapter() {              //Ìí¼Ó´°¿Ú¹Ø±ÕµÄ¼àÌıÀà
+		mainGUI.setEnabled(false);//å°†ä¸»ç•Œé¢å†è®¾ç½®ä¸ºå¯æ“ä½œçš„
+		addWindowListener(new WindowAdapter() {              //æ·»åŠ çª—å£å…³é—­çš„ç›‘å¬ç±»
 			public void windowClosing(WindowEvent e) {  
-				 mainGUI.setEnabled(true);    //½«Ö÷½çÃæÔÙÉèÖÃÎª¿É²Ù×÷µÄ
+				 mainGUI.setEnabled(true);    //å°†ä¸»ç•Œé¢å†è®¾ç½®ä¸ºå¯æ“ä½œçš„
 	         }  
 		});
 	}
 
 	private void init() {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		JPanel jPanel = new JPanel();
 		JPanel jPanel_1 = new JPanel(new FlowLayout());
 		JPanel jPanel_2 = new JPanel(new FlowLayout());
@@ -59,14 +59,14 @@ public class DataSourseGUI extends JFrame implements ActionListener{
 		JPanel jPanel_5 = new JPanel(new FlowLayout());
 		JPanel jPanel_6 = new JPanel(new FlowLayout());
 		JPanel jPanel_7 = new JPanel(new FlowLayout());
-		((FlowLayout) jPanel_7.getLayout()).setHgap(122);   //ÉèÖÃÁ½°´Å¥Ö®¼äµÄ¼ä¾à
+		((FlowLayout) jPanel_7.getLayout()).setHgap(122);   //è®¾ç½®ä¸¤æŒ‰é’®ä¹‹é—´çš„é—´è·
 		
-		dataTypeLabel = new JLabel("Àà    ĞÍ:",JLabel.RIGHT);
-		dataHostLabel = new JLabel("Ö÷»úÃû:",JLabel.RIGHT);
-		dataPortLabel = new JLabel("¶Ë    ¿Ú:",JLabel.RIGHT);
-		dataBaseLabel = new JLabel("Êı¾İ¿â:",JLabel.RIGHT);
-		userNameLabel = new JLabel("ÓÃ»§Ãû:",JLabel.RIGHT);
-		passWordLabel = new JLabel("ÃÜ    Âë:",JLabel.RIGHT);
+		dataTypeLabel = new JLabel("ç±»    å‹:",JLabel.RIGHT);
+		dataHostLabel = new JLabel("ä¸»æœºå:",JLabel.RIGHT);
+		dataPortLabel = new JLabel("ç«¯    å£:",JLabel.RIGHT);
+		dataBaseLabel = new JLabel("æ•°æ®åº“:",JLabel.RIGHT);
+		userNameLabel = new JLabel("ç”¨æˆ·å:",JLabel.RIGHT);
+		passWordLabel = new JLabel("å¯†    ç :",JLabel.RIGHT);
 		
 		dataTypeField = new JComboBox<>();
 		dataTypeField.setPreferredSize(new Dimension(220, 20));
@@ -82,10 +82,10 @@ public class DataSourseGUI extends JFrame implements ActionListener{
 		userNameField = new JTextField("root",20);
 		passWordField = new JTextField(20);
 		
-		connectTestBut = new JButton("Á¬½Ó²âÊÔ");
-		connectTestBut.addActionListener(this);   //ÎªÁ¬½Ó²âÊÔÌí¼Ó¼àÌı
-		submitBut = new JButton("È·¶¨");
-		submitBut.addActionListener(this);    //ÎªÈ·¶¨Ìí¼Ó¼àÌı
+		connectTestBut = new JButton("è¿æ¥æµ‹è¯•");
+		connectTestBut.addActionListener(this);   //ä¸ºè¿æ¥æµ‹è¯•æ·»åŠ ç›‘å¬
+		submitBut = new JButton("ç¡®å®š");
+		submitBut.addActionListener(this);    //ä¸ºç¡®å®šæ·»åŠ ç›‘å¬
 		
 		jPanel_1.add(dataTypeLabel);
 		jPanel_1.add(dataTypeField);
@@ -120,12 +120,12 @@ public class DataSourseGUI extends JFrame implements ActionListener{
 	}
 	
 	/*
-	 * °´Å¥µÄ¼àÌıÊÂ¼ş     1¡¢ Êı¾İ¿âÁ¬½Ó²âÊÔ     2¡¢È·¶¨
+	 * æŒ‰é’®çš„ç›‘å¬äº‹ä»¶     1ã€ æ•°æ®åº“è¿æ¥æµ‹è¯•     2ã€ç¡®å®š
  	 */
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		
 		String dataBase = (String) dataTypeField.getSelectedItem();
 		String dataHost = dataHostField.getText().trim();
@@ -139,19 +139,19 @@ public class DataSourseGUI extends JFrame implements ActionListener{
 		if(StrIsEmpty(args)) {
 			
 		}else {
-			// µã»÷   Á¬½Ó²âÊÔ   °´Å¥
+			// ç‚¹å‡»   è¿æ¥æµ‹è¯•   æŒ‰é’®
 			if(e.getSource() == connectTestBut) {
 				if(JdbcUtil.getConnection(dataBase, dataHost, dataPort, userName, passWord)==null) {
-					JOptionPane.showMessageDialog(null, "Êı¾İ¿âÁ¬½ÓÊ§°Ü£¡","´íÎó",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "æ•°æ®åº“è¿æ¥å¤±è´¥ï¼","é”™è¯¯",JOptionPane.ERROR_MESSAGE);
 				}else {
-					JOptionPane.showMessageDialog(null, "Êı¾İ¿âÁ¬½Ó³É¹¦£¡");
+					JOptionPane.showMessageDialog(null, "æ•°æ®åº“è¿æ¥æˆåŠŸï¼");
 					String sql = "SELECT SCHEMA_NAME FROM information_schema.SCHEMATA";
 					System.out.println(JdbcUtil.executeQuery(sql));
 					JdbcUtil.close();
 				}
 			}
 			
-			// µã»÷    È·¶¨   °´Å¥
+			// ç‚¹å‡»    ç¡®å®š   æŒ‰é’®
 			if(e.getSource() == submitBut) {
 				
 			}
@@ -159,16 +159,16 @@ public class DataSourseGUI extends JFrame implements ActionListener{
 	}
 
 	private boolean StrIsEmpty(String[] args) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		Boolean flag = false;
-		String[] message = {"ÇëÑ¡ÔñÊı¾İ¿â£¡","ÇëÊäÈëÖ÷»úµØÖ·£¡","ÇëÊäÈë¶Ë¿ÚºÅ£¡","ÇëÊäÈëÓÃ»§Ãû£¡","ÇëÊäÈëÃÜÂë£¡"};
+		String[] message = {"è¯·é€‰æ‹©æ•°æ®åº“ï¼","è¯·è¾“å…¥ä¸»æœºåœ°å€ï¼","è¯·è¾“å…¥ç«¯å£å·ï¼","è¯·è¾“å…¥ç”¨æˆ·åï¼","è¯·è¾“å…¥å¯†ç ï¼"};
 		for(int i=0;i<args.length;i++) {
 			if(i==4) {
 				continue;
 			}else {
 				if(args[i].isEmpty()||"".equals(args[i])) {
 					flag = true;
-					JOptionPane.showMessageDialog(null, message[i],"´íÎó",JOptionPane.ERROR_MESSAGE);break;
+					JOptionPane.showMessageDialog(null, message[i],"é”™è¯¯",JOptionPane.ERROR_MESSAGE);break;
 				}
 			}
 		}
